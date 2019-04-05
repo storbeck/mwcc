@@ -1,26 +1,38 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import store from "./store";
+import { Provider } from "react-redux";
+import Divider from '@material-ui/core/Divider';
+
+
 import './App.css';
+import NavBar from './components/NavBar';
+import Cover from "./components/Cover";
+import Triplets from "./components/Triplets";
+import AboutUs from "./components/AboutUs";
+import WhyUs from "./components/WhyUs";
+import Products from "./components/Products";
+import Services from "./components/Services";
+import FormDialog from "./components/FormDialog";
 
 class App extends Component {
   render() {
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+        <Provider store={store}>
+            <NavBar></NavBar>
+            <div>
+                <Cover />
+                <Triplets />
+                <AboutUs />
+                <Divider variant="middle" />
+                <WhyUs />
+                <Divider variant="middle" />
+                <Products />
+                <Divider variant="middle" />
+                <Services />
+            </div>
+            <FormDialog />
+        </Provider>
     );
   }
 }
